@@ -1,0 +1,168 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin-top": 2,
+  "margin-left": 2,
+  "margin-right": 2,
+  "margin-bottom": 5,
+  "spacing": 8,
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "mpris"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "clock",
+    "custom/swaync"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "active": ""
+    }
+  },
+  "sway/mode": {
+    "format": "<span foreground='#e67e80'> </span>{}"
+  },
+  "backlight": {
+    "interval": 2,
+    "format": "",
+    "tooltip-format": "Backlight {percent}%",
+    "smooth-scrolling-threshold": 1,
+    "on-scroll-up": "brightnessctl set +5% && notify-send \"Brightness set to $(brightnessctl | grep -oP '\\d+(?=%)')%\"",
+    "on-scroll-down": "brightnessctl set 5%- && notify-send \"Brightness set to $(brightnessctl | grep -oP '\\d+(?=%)')%\""
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueman-manager"
+  },
+  "battery": {
+    "states": {
+      "great": 95,
+      "warning": 25,
+      "low": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{icon} {capacity}%",
+    "interval": 5,
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
+  },
+  "tray": {
+    "spacing": 8,
+    "icon-size": 20
+  },
+  "clock": {
+    "format": "<span foreground='#a7c080'>   </span>{:%I:%M:%S %p}",
+    "tooltip": true,
+    "tooltip-format": "{calendar}",
+    "interval": 1
+  },
+  "cpu": {
+    "format": "<span foreground='#9da9a0'> </span>{usage}%",
+    "interval": 2,
+    "on-click": "kitty -e btop"
+  },
+  "memory": {
+    "format": "<span foreground='#dbbc7f'> </span>{percentage}%",
+    "interval": 2,
+    "on-click": "kitty -e btop"
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-linked": "No IP",
+    "format-disconnected": "",
+    "on-click": "kitty --title nmtui -e nmtui"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-bluetooth": "{icon}",
+    "on-click": "pavucontrol",
+    "format-icons": [
+      "<span foreground='#e69875'></span>",
+      "<span foreground='#e69875'></span>",
+      "<span foreground='#e69875'></span>"
+    ]
+  },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar",
+    "return-type": "json"
+  },
+  "custom/swaync": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='#e67e80'>●</span>",
+      "none": "",
+      "dnd-notification": " <span foreground='#e67e80'>●</span>",
+      "dnd-none": "",
+      "inhibited-notification": " <span foreground='#e67e80'>●</span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": " <span foreground='#e67e80'>●</span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "hyprland/language": {
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    "format": "{}",
+    "tooltip": false
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "tooltip": false,
+    "player-icons": {
+      "default": "<span color='#7fbbb3'> </span> <span color='#9da9a0'></span>"
+    },
+    "status-icons": {
+      "paused": "<span color='#7fbbb3'> </span> <span color='#9da9a0'></span>"
+    },
+    "dynamic-len": 14
+  },
+  "hyprland/window": {
+    "format": "{initialClass}",
+    "icon": true,
+    "icon-size": 20,
+    "rewrite": {
+      "^$": "🖵  Desktop ",
+      "^(?!$)(.*)": "<span text_transform='capitalize'> $1 </span>"
+    }
+  },
+  "custom/launcher":{
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+    "on-click-right": "killall rofi"
+  },
+}

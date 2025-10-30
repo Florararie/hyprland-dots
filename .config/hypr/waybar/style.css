@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: JetBrains Mono Regular;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Remove default module group backgrounds */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* Base module styling - transparent pills */
+.module {
+    background: #242438;
+    border-radius: 6px;
+    margin: 0px 0;
+    padding: 0px 3px;
+    color: #cdd6f4;
+}
+
+/* Individual module styling with Catppuccin Mocha colors */
+#custom-launcher {
+    color: #89b4fa;
+    font-size: 18px;
+    margin-left: 14px;
+    padding-left: 10px;
+    padding-right: 12px;
+}
+
+#cpu {
+    color: #eed49f;
+}
+
+#memory {
+    color: #a6da95;
+}
+
+#custom-window-name {
+    color: #cdd6f4;
+}
+
+#custom-pacman-update-icon {
+    color: #8bd5ca;
+    padding: 0px 10px;
+}
+
+#custom-pacman-update {
+    color: #8bd5ca;
+}
+
+#tray {
+    padding: 0px 8px;
+}
+
+/* Workspaces styling */
+#workspaces {
+    border-radius: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #6c7086;
+    border-radius: 10px;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+#workspaces button.active {
+    color: #b4befe;
+    font-weight: 900;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+/* Right side modules */
+#pulseaudio {
+    padding: 0px 10px;
+    color: #91d7e3;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#network {
+    padding: 0px 10px;
+    color: #74c7ec;
+}
+
+#bluetooth {
+  padding: 0px 10px;
+}
+
+#network.disconnected {
+    color: #f38ba8
+}
+
+#clock {
+    color: #cba6f7;
+    padding: 0px 14px;
+}
+
+#custom-swaync {
+  padding: 0px 10px;
+  margin-right: 14px;
+}
+
+/* Music module */
+#custom-music {
+    color: #f5c2e7;
+    border-radius: 12px;
+    padding: 0px 12px;
+}
+
+#custom-music.Playing {
+    background: rgba(245, 194, 231, 0.25);
+}
+
+#custom-music.Paused,
+#custom-music.Stopped {
+    color: #6c7086;
+}
+
+/* Hover effects for interactive modules */
+#custom-launcher:hover,
+#battery:hover,
+#backlight:hover,
+#custom-wl-gammarelay-temperature:hover,
+#pulseaudio:hover,
+#network:hover,
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#custom-pacman-update-icon:hover,
+#custom-music:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip styling */
+tooltip {
+    background: rgba(30, 32, 48, 0.95);
+    border-radius: 8px;
+    color: #cdd6f4;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    padding: 0px 4px;
+}
