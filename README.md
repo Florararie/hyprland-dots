@@ -1,7 +1,7 @@
 # hyprland-dots
 
-This is mainly for my own personal use and archival. I'm not too particularly inclined to include a setup script either.  
+A very simple setup script has now been included. It was made on CachyOS after having selected Hyprland in the Calamares installation process. As such I do not know if every dependency needed has been included, but the basics should be there.  
 
-These dots were made on CachyOS after already having previously installed KDE Plasma. As such I dont know what every dependency would be. Maybe I'll make something more comprehensive, but for now this is pretty much all I'm putting here. Feel free to use if you'd like.
+Install Script: [View](/Install.sh) - [Download](https://github.com/Florararie/hyprland-dots/releases/latest/download/Install.sh)
  
 <img src="/preview/desktop.png"/>
