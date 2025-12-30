@@ -44,12 +44,18 @@ pacman_packages=(
     hyprshot
     rofi
     plasma-systemmonitor
+    qt5-wayland
+    qt5ct
+    breeze
+    breeze-icons
+    ttf-hack
     ttf-jetbrains-mono
 )
 
 
 aur_packages=(
     ags-hyprpanel-git
+    qt6ct-kde
 )
 
 
