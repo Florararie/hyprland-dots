@@ -35,10 +35,16 @@ fi
 
 pacman_packages=(
     firefox
-    alacritty
-    pcmanfm-qt
+    kitty
+    thunar
+    catfish
+    tumbler
+    thunar-volman
+    thunar-archive-plugin
+    thunar-media-tags-plugin
     hyprpaper
     hypridle
+    polkit-gnome
     hyprpolkitagent
     hyprlock
     hyprshot
