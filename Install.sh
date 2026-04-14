@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -euo pipefail
-trap 'echo "❌ Setup failed. Check the output above."' ERR
+trap 'echo "Setup failed. Check the output above."' ERR
 
 
 CONFIG_DIR="$HOME/.config"
@@ -36,15 +36,11 @@ fi
 pacman_packages=(
     firefox
     kitty
-    thunar
+    corectrl
     catfish
     tumbler
-    thunar-volman
-    thunar-archive-plugin
-    thunar-media-tags-plugin
     hyprpaper
     hypridle
-    polkit-gnome
     hyprpolkitagent
     hyprlock
     hyprshot
@@ -96,7 +92,7 @@ fi
 echo ""
 if [ -d "$REPO_DIR/.git" ]; then
     echo "Updating existing hyprland-dots repo..."
-    git -C "$REPO_DIR" diff --quiet || echo "⚠️  Local changes detected"
+    git -C "$REPO_DIR" diff --quiet || echo "Local changes detected"
     git -C "$REPO_DIR" pull --ff-only
 else
     echo "Cloning hyprland dots..."
