@@ -29,13 +29,13 @@ choice=$(show_menu | rofi -dmenu -i -p "Power Menu:" -theme $THEME)
 case "$choice" in
     "⏻  Shutdown")
         if confirm_action "shutdown"; then
-            systemctl poweroff &
+            hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff' &
             exit 0
         fi
         ;;
     "  Reboot")
         if confirm_action "reboot"; then
-            systemctl reboot &
+            hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot' &
             exit 0
         fi
         ;;
@@ -51,7 +51,7 @@ case "$choice" in
         ;;
     "  Logout")
         if confirm_action "logout"; then
-            hyprctl dispatch exit &
+            hyprshutdown &
             exit 0
         fi
         ;;

@@ -36,17 +36,22 @@ fi
 pacman_packages=(
     firefox
     kitty
+    alacritty
     corectrl
-    catfish
     tumbler
     hyprpaper
     hypridle
     hyprpolkitagent
+    polkit-kde-agent
     hyprlock
-    hyprshot
+    hyprshutdown
+    grim
+    slurp
+    wl-clipboard
     rofi
     plasma-systemmonitor
     qt5-wayland
+    qt6-wayland
     qt5ct
     breeze
     breeze-icons
@@ -56,8 +61,8 @@ pacman_packages=(
 
 
 aur_packages=(
-    ags-hyprpanel-git
-    qt6ct-kde
+    ags-hyprpanel-git # will replace with wayle eventually
+    qt6ct-kde # will replace with hyprqt6engine eventually
 )
 
 

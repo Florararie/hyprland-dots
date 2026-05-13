@@ -172,8 +172,10 @@
   "bar.customModules.weather.unit": "imperial",
   "theme.bar.buttons.modules.weather.enableBorder": false,
   "bar.customModules.updates.autoHide": false,
-  "bar.customModules.updates.leftClick": "$TERMINAL -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
+  "bar.customModules.updates.leftClick": "alacritty -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
   "theme.bar.menus.menu.notifications.scrollbar.width": "0.35em",
   "theme.bar.menus.menu.notifications.height": "58em",
-  "bar.customModules.hypridle.onLabel": "On"
+  "bar.customModules.hypridle.onLabel": "On",
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "theme.bar.buttons.modules.updates.enableBorder": false
 }
