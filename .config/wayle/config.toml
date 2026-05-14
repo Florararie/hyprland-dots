@@ -1,0 +1,81 @@
+[bar]
+bg = "transparent"
+border-width = 2
+button-variant = "basic"
+
+[[bar.layout]]
+monitor = "DP-2"
+show = true
+left = [
+    "dashboard",
+    "hyprland-workspaces",
+    "window-title",
+]
+center = ["media"]
+right = [
+    "systray",
+    "volume",
+    "network",
+    "bluetooth",
+    "clock",
+    "notifications",
+]
+
+[[bar.layout]]
+monitor = "HDMI-A-1"
+show = true
+left = [
+    "hyprland-workspaces",
+    "media",
+]
+center = []
+right = [
+    "systray",
+    "updates",
+    "volume",
+    "network",
+    "clock",
+    "notifications",
+]
+
+[styling.palette]
+primary = "#d699b6"
+
+[modules.bluetooth]
+label-show = false
+
+[modules.clock]
+format = "%I:%M:%S %p"
+dropdown-show-seconds = true
+
+[modules.hyprland-workspaces]
+active-indicator = "underline"
+
+[modules.media]
+label-max-length = 15
+
+[modules.network]
+label-show = false
+
+[modules.notification]
+label-show = false
+
+[modules.systray]
+icon-scale = 1.0499999523162842
+item-gap = 0.5
+
+[modules.volume]
+label-show = false
+
+[modules.weather]
+location = "New York"
+units = "imperial"
+
+[osd]
+position = "top-right"
+margin = 0.0
+
+[wallpaper]
+engine-enabled = false
+transition-type = "wave"
+transition-fps = 180

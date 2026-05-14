@@ -61,7 +61,7 @@ pacman_packages=(
 
 
 aur_packages=(
-    ags-hyprpanel-git # will replace with wayle eventually
+    wayle-bin
     qt6ct-kde # will replace with hyprqt6engine eventually
 )
 
@@ -116,11 +116,13 @@ fi
 echo ""
 mkdir -p "$CONFIG_DIR"
 backup_if_exists "$CONFIG_DIR/hypr"
+backup_if_exists "$CONFIG_DIR/wayle"
 backup_if_exists "$CONFIG_DIR/gtk-3.0"
 backup_if_exists "$CONFIG_DIR/gtk-4.0"
 
 
 rsync -a "$REPO_DIR/.config/hypr/" "$CONFIG_DIR/hypr/"
+rsync -a "$REPO_DIR/.config/wayle/" "$CONFIG_DIR/wayle/"
 [ -L "$CONFIG_DIR/gtk-3.0" ] && rm "$CONFIG_DIR/gtk-3.0"
 [ -L "$CONFIG_DIR/gtk-4.0" ] && rm "$CONFIG_DIR/gtk-4.0"
 ln -s "$CONFIG_DIR/hypr/gtk/gtk-3.0" "$CONFIG_DIR/gtk-3.0"
