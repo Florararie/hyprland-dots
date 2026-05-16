@@ -110,11 +110,15 @@ case "$choice" in
         geom=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
         grim -g "$geom" "$OUTFILE"
         ;;
+    # I stole this from grimblast lmao
     "📐  Select Window")
         close_anim_off; freezescreen
-        active_workspaces=$(hyprctl monitors -j | jq -r '.[].activeWorkspace.id')
-        geom=$(hyprctl clients -j | jq -r --argjson ws "$(echo "$active_workspaces" | jq -Rs '[split("\n")[] | select(. != "") | tonumber]')" \
-            '.[] | select(.workspace.id as $id | $ws | index($id)) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
+        fullscreen_workspaces="$(hyprctl workspaces -j | jq -r 'map(select(.hasfullscreen) | .id)')"
+        active_workspaces="$(hyprctl monitors -j | jq -r '[(foreach .[] as $monitor (0; if $monitor.specialWorkspace.name == "" then $monitor.activeWorkspace else $monitor.specialWorkspace end)).id]')"
+        geom=$(hyprctl clients -j | jq -r \
+            --argjson workspaces "$active_workspaces" \
+            --argjson fullscreenWorkspaces "$fullscreen_workspaces" \
+            'map(select(([.workspace.id] | inside($workspaces)) and ([.workspace.id] | inside($fullscreenWorkspaces) | not) or .fullscreen > 0)) | .[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
         killhyprpicker
         [ -z "$geom" ] && { close_anim_on; exit 0; }
         maybe_hide_cursor
