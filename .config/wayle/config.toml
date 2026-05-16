@@ -1,6 +1,6 @@
 [bar]
 bg = "transparent"
-border-width = 2
+border-width = 3
 button-variant = "basic"
 
 [[bar.layout]]
@@ -11,7 +11,10 @@ left = [
     "hyprland-workspaces",
     "window-title",
 ]
-center = ["media"]
+center = [
+    "media",
+    "cava",
+]
 right = [
     "systray",
     "volume",
@@ -31,7 +34,6 @@ left = [
 center = []
 right = [
     "systray",
-    "updates",
     "volume",
     "network",
     "clock",

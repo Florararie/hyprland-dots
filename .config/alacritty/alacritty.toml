@@ -1,0 +1,13 @@
+[general]
+import = ["~/.config/alacritty/themes/flory.toml"]
+
+[window]
+opacity = 0.9
+padding.x = 15
+padding.y = 15
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = {shape = "Underline", blinking = "On"}

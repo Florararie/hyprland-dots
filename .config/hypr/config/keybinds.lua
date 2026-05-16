@@ -46,7 +46,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper.sh"))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wayle panel settings"))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("~/.config/hypr/scripts/panelSettings.sh"))
 hl.bind("CONTROL + SHIFT + ESCAPE", hl.dsp.exec_cmd(taskmanager))
 
 -- Toggles

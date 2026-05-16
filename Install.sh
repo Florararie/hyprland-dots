@@ -5,6 +5,7 @@ trap 'echo "Setup failed. Check the output above."' ERR
 
 
 CONFIG_DIR="$HOME/.config"
+LOCAL_DIR="$HOME/.local/share"
 REPO_DIR="$HOME/hyprland-dots"
 PARU_BUILD_DIR="$HOME/.cache/paru-build"
 REPO_URL="https://github.com/Florararie/hyprland-dots"
@@ -35,6 +36,8 @@ fi
 
 pacman_packages=(
     firefox
+    nwg-look
+    pcmanfm-qt
     kitty
     alacritty
     corectrl
@@ -55,14 +58,16 @@ pacman_packages=(
     qt5ct
     breeze
     breeze-icons
+    breeze-cursors
     ttf-hack
     ttf-jetbrains-mono
 )
 
 
 aur_packages=(
+    qt6ct-kde # will replace with hyprqt6engine eventually (maybe?)
     wayle-bin
-    qt6ct-kde # will replace with hyprqt6engine eventually
+    noctalia-shell # another option?
 )
 
 
@@ -115,18 +120,25 @@ fi
 
 echo ""
 mkdir -p "$CONFIG_DIR"
+mkdir -p "$LOCAL_DIR"
 backup_if_exists "$CONFIG_DIR/hypr"
 backup_if_exists "$CONFIG_DIR/wayle"
-backup_if_exists "$CONFIG_DIR/gtk-3.0"
-backup_if_exists "$CONFIG_DIR/gtk-4.0"
+backup_if_exists "$CONFIG_DIR/noctalia"
+backup_if_exists "$CONFIG_DIR/qt5ct"
+backup_if_exists "$CONFIG_DIR/qt6ct"
+backup_if_exists "$CONFIG_DIR/alacritty"
+backup_if_exists "$LOCAL_DIR/color-schemes"
+backup_if_exists "$LOCAL_DIR/themes"
 
 
 rsync -a "$REPO_DIR/.config/hypr/" "$CONFIG_DIR/hypr/"
 rsync -a "$REPO_DIR/.config/wayle/" "$CONFIG_DIR/wayle/"
-[ -L "$CONFIG_DIR/gtk-3.0" ] && rm "$CONFIG_DIR/gtk-3.0"
-[ -L "$CONFIG_DIR/gtk-4.0" ] && rm "$CONFIG_DIR/gtk-4.0"
-ln -s "$CONFIG_DIR/hypr/gtk/gtk-3.0" "$CONFIG_DIR/gtk-3.0"
-ln -s "$CONFIG_DIR/hypr/gtk/gtk-4.0" "$CONFIG_DIR/gtk-4.0"
+rsync -a "$REPO_DIR/.config/noctalia/" "$CONFIG_DIR/noctalia/"
+rsync -a "$REPO_DIR/.config/qt5ct/" "$CONFIG_DIR/qt5ct/"
+rsync -a "$REPO_DIR/.config/qt6ct/" "$CONFIG_DIR/qt6ct/"
+rsync -a "$REPO_DIR/.config/alacritty/" "$CONFIG_DIR/alacritty/"
+rsync -a "$REPO_DIR/.local/share/color-schemes/" "$LOCAL_DIR/color-schemes/"
+rsync -a "$REPO_DIR/.local/share/themes/" "$LOCAL_DIR/themes/"
 
 
 echo ""
