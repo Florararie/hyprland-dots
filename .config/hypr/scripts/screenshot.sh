@@ -8,6 +8,14 @@ SOUND_FILE="/usr/share/sounds/freedesktop/stereo/camera-shutter.oga"
 
 mkdir -p "$SAVEDIR"
 
+cleanup() {
+    maybe_show_cursor
+    close_anim_on
+    killhyprpicker
+}
+
+trap cleanup EXIT
+
 show_menu() {
     local current_delay=$1
     local current_hide=$2
@@ -46,8 +54,17 @@ set_hide_cursor() {
     esac
 }
 
+freezescreen() {
+    hyprpicker -rz &
+    sleep 0.2
+}
+
+killhyprpicker() {
+    pidof -q hyprpicker && pkill hyprpicker
+}
+
 cursor_show()    { hyprctl eval 'hl.config({ cursor = { invisible = false } })'; }
-cursor_hide()    { hyprctl eval 'hl.config({ cursor = { invisible = true } })'; sleep 0.2; }
+cursor_hide()    { hyprctl eval 'hl.config({ cursor = { invisible = true } })'; sleep 0.6; }
 close_anim_off() { hyprctl eval 'hl.animation({ leaf = "fadeLayersOut", enabled = false })'; }
 close_anim_on()  { hyprctl eval 'hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 6, bezier = "default" })'; }
 
@@ -94,28 +111,28 @@ case "$choice" in
         grim -g "$geom" "$OUTFILE"
         ;;
     "📐  Select Window")
-        close_anim_off
-        active_ws=$(hyprctl activeworkspace -j | jq -r '.id')
-        geom=$(hyprctl clients -j | jq -r --argjson ws "$active_ws" \
-            '.[] | select(.workspace.id == $ws) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
+        close_anim_off; freezescreen
+        active_workspaces=$(hyprctl monitors -j | jq -r '.[].activeWorkspace.id')
+        geom=$(hyprctl clients -j | jq -r --argjson ws "$(echo "$active_workspaces" | jq -Rs '[split("\n")[] | select(. != "") | tonumber]')" \
+            '.[] | select(.workspace.id as $id | $ws | index($id)) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
+        killhyprpicker
         [ -z "$geom" ] && { close_anim_on; exit 0; }
         maybe_hide_cursor
         grim -g "$geom" "$OUTFILE"
         ;;
     "✂️  Region")
-        close_anim_off
+        close_anim_off; freezescreen
         geom=$(slurp)
+        killhyprpicker
         [ -z "$geom" ] && { close_anim_on; exit 0; }
         maybe_hide_cursor
         grim -g "$geom" "$OUTFILE"
         ;;
 esac
 
-maybe_show_cursor
-close_anim_on
-
-#[ -f "$SOUND_FILE" ] && paplay "$SOUND_FILE" # this can be obnoxious
-
-wl-copy < "$OUTFILE"
-#notify-send -t 5000 -i "$OUTFILE" "Screenshot" "Saved to: $OUTFILE"
-hyprctl notify -1 5000 "rgb(d699b6)" "Saved to: $OUTFILE"
+if [ -f "$OUTFILE" ]; then
+    #[ -f "$SOUND_FILE" ] && paplay "$SOUND_FILE" # this can be obnoxious
+    wl-copy < "$OUTFILE"
+    #notify-send -t 5000 -i "$OUTFILE" "Screenshot" "Saved to: $OUTFILE"
+    hyprctl notify -1 5000 "rgb(d699b6)" "Saved to: $OUTFILE"
+fi
