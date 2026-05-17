@@ -54,7 +54,7 @@
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
-        "marginHorizontal": 10,
+        "marginHorizontal": 16,
         "marginVertical": 6,
         "middleClickAction": "none",
         "middleClickCommand": "",
