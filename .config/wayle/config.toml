@@ -1,7 +1,16 @@
 [bar]
+inset-edge = 1.0
+inset-ends = 0.75
 bg = "transparent"
+background-opacity = 95
 border-width = 3
+rounding = "lg"
 button-variant = "basic"
+button-icon-padding = 1.149999976158142
+button-rounding = "md"
+button-border-width = 2
+button-group-rounding = "md"
+dropdown-freeze-label = false
 
 [[bar.layout]]
 monitor = "DP-2"
@@ -34,17 +43,36 @@ left = [
 center = []
 right = [
     "systray",
+    "custom-arch-updates",
     "volume",
     "network",
     "clock",
     "notifications",
 ]
 
+[styling]
+rounding = "md"
+
 [styling.palette]
+bg = "#0d0d1a"
+surface = "#0d0d1a"
+elevated = "#1a1a2a"
+fg = "#e0d9f0"
+fg-muted = "#8888aa"
 primary = "#d699b6"
+red = "#e06b7a"
+yellow = "#c4a882"
+green = "#91c89a"
+blue = "#a79ad4"
 
 [modules.bluetooth]
 label-show = false
+
+[modules.cava]
+low-cutoff = 45
+bar-width = 8
+bar-gap = 0
+internal-padding = 0.20000000298023224
 
 [modules.clock]
 format = "%I:%M:%S %p"
@@ -72,6 +100,32 @@ label-show = false
 [modules.weather]
 location = "New York"
 units = "imperial"
+
+[[modules.custom]]
+id = "arch-updates"
+command = "~/.config/hypr/scripts/checkUpdates.sh -arch"
+mode = "poll"
+interval-ms = 1440000
+restart-policy = "never"
+restart-interval-ms = 1000
+format = "{{ output }} "
+hide-if-empty = false
+icon-name = "system-software-update-symbolic"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "auto"
+label-show = true
+label-color = "auto"
+label-max-length = 12
+button-bg-color = "bg-surface-elevated"
+border-show = false
+border-color = "auto"
+left-click = "$TERM -e ~/.config/hypr/scripts/runUpdates.sh -arch"
+right-click = ""
+middle-click = ""
+scroll-up = ""
+scroll-down = ""
+on-action = "~/.config/hypr/scripts/checkUpdates.sh -arch"
 
 [osd]
 position = "top-right"
