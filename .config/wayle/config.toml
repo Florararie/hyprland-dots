@@ -101,7 +101,7 @@ label-show = false
 location = "New York"
 units = "imperial"
 
-[[modules.custom]]
+[[custom]]
 id = "arch-updates"
 command = "~/.config/hypr/scripts/checkUpdates.sh -arch"
 mode = "poll"
@@ -120,8 +120,8 @@ label-max-length = 12
 button-bg-color = "bg-surface-elevated"
 border-show = false
 border-color = "auto"
-left-click = "$TERM -e ~/.config/hypr/scripts/runUpdates.sh -arch"
-right-click = ""
+left-click = "alacritty -e ~/.config/hypr/scripts/runUpdates.sh -arch"
+right-click = "~/.config/hypr/scripts/checkUpdates.sh -arch"
 middle-click = ""
 scroll-up = ""
 scroll-down = ""
