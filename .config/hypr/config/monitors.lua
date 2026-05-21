@@ -7,6 +7,7 @@ hl.monitor({
     mode = "2560x1440@180",
     position = "0x240",
     scale = 1,
+    --vrr = 2,
 
     --cm = "auto",
     --bitdepth = 10,
@@ -29,6 +30,10 @@ hl.monitor({
 hl.config({
     cursor = {
         no_hardware_cursors = 1
+    },
+
+    general = {
+        allow_tearing = false, -- you may want this, but false is a safe default
     },
 
     --[[quirks = {
