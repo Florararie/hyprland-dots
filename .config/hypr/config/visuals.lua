@@ -14,7 +14,6 @@ hl.config({
 
         resize_on_border        = true,
         extend_border_grab_area = 8,
-        allow_tearing           = false, -- you may want this, but false is a safe default
         layout                  = "dwindle",
         --layout                  = "scrolling",
     },
