@@ -29,7 +29,9 @@ get_steam_appid() {
 
     local found_appid="" walk=$pid
     while [[ "$walk" -ne 1 && -n "$walk" ]]; do
-        [[ $(stat -c %u /proc/$walk 2>/dev/null) != $(id -u) ]] && break
+        local owner
+        owner=$(stat -c %u /proc/$walk 2>/dev/null)
+        [[ -z "$owner" || "$owner" != $(id -u) ]] && break
         local env
         env=$(tr '\0' '\n' < /proc/$walk/environ 2>/dev/null)
         if grep -qE '^(SteamAppId|SteamGameId|STEAM_COMPAT_APP_ID|SteamOverlayGameId)=' <<< "$env"; then
