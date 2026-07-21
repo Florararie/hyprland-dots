@@ -90,15 +90,16 @@ hl.config({
 
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations
 -- Curves
-hl.curve( "bounce",  { type = "spring", mass = 1, stiffness = 25, dampening = 7 })
+hl.curve( "windowBounce",    { type = "spring", mass = 1, stiffness = 350, dampening = 24 })
+hl.curve( "workspaceBounce", { type = "spring", mass = 1, stiffness = 250, dampening = 22 })
 hl.curve( "easeIn",  { type = "bezier", points = { {0.49, 0.04}, {0.98, 1.06} } })
 hl.curve( "easeOut", { type = "bezier", points = { {0.00, 0.33}, {0.31, 1.23} } })
 hl.curve( "linear",  { type = "bezier", points = { {0.00, 0.00}, {1.00, 1.00} } })
 
 -- Windows
-hl.animation({ leaf = "windowsIn",      enabled = true, speed = 4,  spring  = "bounce",     style = "popin 60%" })
-hl.animation({ leaf = "windowsOut",     enabled = true, speed = 4,  spring  = "bounce",     style = "popin 90%" })
-hl.animation({ leaf = "windowsMove",    enabled = true, speed = 5,  spring  = "bounce" })
+hl.animation({ leaf = "windowsIn",      enabled = true, speed = 1, spring  = "windowBounce", style = "popin 60%" })
+hl.animation({ leaf = "windowsOut",     enabled = true, speed = 1, spring  = "windowBounce", style = "popin 90%" })
+hl.animation({ leaf = "windowsMove",    enabled = true, speed = 1, spring  = "windowBounce" })
 
 -- Fades
 hl.animation({ leaf = "fadeIn",         enabled = true, speed = 3,  bezier  = "easeOut" })
@@ -115,5 +116,5 @@ hl.animation({ leaf = "border",         enabled = true, speed = 4,  bezier  = "e
 hl.animation({ leaf = "borderangle",    enabled = true, speed = 50, bezier  = "linear", style = "loop" }) -- May need to disable or change to "once" if device is underpowered
 
 -- Workspaces
-hl.animation({ leaf = "workspacesIn",   enabled = true, speed = 30, spring  = "bounce",  style = "slidefade 60%" })
-hl.animation({ leaf = "workspacesOut",  enabled = true, speed = 30, spring  = "bounce",  style = "slidefade 60%" })
+hl.animation({ leaf = "workspacesIn",   enabled = true, speed = 1, spring  = "workspaceBounce", style = "slidefade 60%" })
+hl.animation({ leaf = "workspacesOut",  enabled = true, speed = 1, spring  = "workspaceBounce", style = "slidefade 60%" })
