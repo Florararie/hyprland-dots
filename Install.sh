@@ -40,7 +40,8 @@ pacman_packages=(
     pcmanfm-qt
     kitty
     alacritty
-    corectrl
+    #corectrl
+    lact
     tumbler
     hyprpaper
     hypridle
