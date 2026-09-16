@@ -1,7 +1,7 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules
 
-hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol" }, float = true, center = true, size = "660, 540" })
+hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol" }, float = true, center = true, size = "660, 540" })
 hl.window_rule({ match = { title = "Save File" }, float = true })
 hl.window_rule({ match = { title = "Open File" }, float = true })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
@@ -19,6 +19,7 @@ hl.window_rule({ match = { title = "Protontricks at Home" }, float = true })
 
 hl.window_rule({ match = { class = "discord" }, workspace = "5" })
 hl.window_rule({ match = { class = "vesktop" }, workspace = "5" })
+hl.window_rule({ match = { class = "equibop" }, workspace = "5" })
 
 --hl.window_rule({
 --    -- Ignore maximize requests from all apps. You'll probably like this.
