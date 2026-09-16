@@ -61,6 +61,7 @@ pacman_packages=(
     breeze-cursors
     ttf-hack
     ttf-jetbrains-mono
+    pwvucontrol
 )
 
 
