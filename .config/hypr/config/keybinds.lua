@@ -2,7 +2,7 @@
 local browser = "firefox"
 local terminal = "alacritty"
 local fileManager = "pcmanfm-qt"
-local taskmanager = "plasma-systemmonitor"
+local taskmanager = "tux-manager"
 local powermenu = "sh ~/.config/hypr/scripts/powermenu.sh"
 local screenshot = "sh ~/.config/hypr/scripts/screenshot.sh"
 local menu = "rofi -show drun -show-icons -theme ~/.config/hypr/rofi/main.rasi"
