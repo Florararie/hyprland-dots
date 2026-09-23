@@ -11,7 +11,7 @@ hl.window_rule({ match = { class = "^(polkit-gnome-authentication-agent-1|hyprpo
 hl.window_rule({ match = { class = "CachyOSHello" }, float = true })
 hl.window_rule({ match = { class = "zenity" }, float = true, center = true, size = "630 700" })
 
-hl.window_rule({ match = { class = "org.kde.plasma-systemmonitor" }, float = true, center = true, size = "1434 916" })
+hl.window_rule({ match = { class = "org.kde.plasma-systemmonitor|tux-manager" }, float = true, center = true, size = "1434 916" })
 hl.window_rule({ match = { title = "Picture-in-Picture" }, float = true, center = true, size = "960 540" })
 hl.window_rule({ match = { class = "steam", title = "Friends List" }, float = true, center = true, size = "350 800" })
 hl.window_rule({ match = { class = "steam", title = "Steam - Self Updater" }, float = true, center = true })
