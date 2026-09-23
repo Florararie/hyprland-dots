@@ -53,7 +53,6 @@ pacman_packages=(
     slurp
     wl-clipboard
     rofi
-    plasma-systemmonitor
     qt5-wayland
     qt6-wayland
     qt5ct
@@ -70,6 +69,7 @@ aur_packages=(
     qt6ct-kde # will replace with hyprqt6engine eventually (maybe?)
     wayle-bin
     noctalia-shell # another option?
+    tuxmanager # GUI task manager
 )
 
 
