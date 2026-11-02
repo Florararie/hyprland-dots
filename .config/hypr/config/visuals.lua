@@ -57,7 +57,7 @@ hl.config({
 
         blur = {
             enabled           = true,
-            xray              = false,
+            xray              = true,
             size              = 8,
             passes            = 3,
             noise             = 0.08,
@@ -67,6 +67,11 @@ hl.config({
             vibrancy_darkness = 0.3,
             new_optimizations = true,
             popups            = true,
+            variant           = "heat_shimmer",
+
+            heat_shimmer = {
+                speed = 2.0
+            },
         },
 
         wobble = {
