@@ -10,19 +10,10 @@ local menu = "rofi -show drun -show-icons -theme ~/.config/hypr/rofi/main.rasi"
 -- https://wiki.hypr.land/configuring/core/config-options/#input
 hl.config({
     input = {
-        kb_layout  = "us",
-        kb_variant = "",
-        kb_model   = "",
-        kb_options = "",
-        kb_rules   = "",
-
-        follow_mouse = 1,
-
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
-
-        touchpad = {
-            natural_scroll = false,
-        },
+        kb_layout     = "us",
+        follow_mouse  = 1,
+        sensitivity   = 0,
+        accel_profile = "flat",
     },
 })
 
