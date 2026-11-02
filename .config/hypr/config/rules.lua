@@ -1,6 +1,10 @@
 -- See https://wiki.hypr.land/configuring/core/rules/window-rules
 -- and https://wiki.hypr.land/configuring/core/rules/workspace-rules
 
+hl.window_rule({ match = { fullscreen = true }, opaque = true })
+hl.window_rule({ match = { class = "^steam_app_.*" }, opaque = true })
+hl.window_rule({ name = "idle-inhibit-fullscreen", match = { class = ".*" }, idle_inhibit = "fullscreen" })
+
 hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol" }, float = true, center = true, size = "660, 540" })
 hl.window_rule({ match = { title = "Save File" }, float = true })
 hl.window_rule({ match = { title = "Open File" }, float = true })
