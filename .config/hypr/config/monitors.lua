@@ -1,13 +1,12 @@
--- See https://wiki.hypr.land/Configuring/Basics/Monitors
+-- See https://wiki.hypr.land/configuring/core/monitors
 
 -- HDR is somehow worse than it was before so I'm leaving related settings commented out
 
 hl.monitor({
     output = "DP-2",
     mode = "2560x1440@180",
-    position = "0x240",
+    position = "0x0",
     scale = 1,
-    --vrr = 2,
 
     --cm = "auto",
     --bitdepth = 10,
@@ -21,15 +20,17 @@ hl.monitor({
 hl.monitor({
     output = "HDMI-A-1",
     mode = "1920x1080@120",
-    position = "2560x0",
+    position = "2560x-240",
     scale = 1,
-    transform = 1
+    transform = 1,
+    disabled = 0
 })
 
 
 hl.config({
     cursor = {
-        no_hardware_cursors = 1
+        no_hardware_cursors = 1,
+        use_cpu_buffer = 1
     },
 
     general = {

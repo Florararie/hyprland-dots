@@ -1,4 +1,4 @@
--- https://wiki.hypr.land/Configuring/
+-- https://wiki.hypr.land/configuring
 
 require("config.monitors")
 require("config.environment")

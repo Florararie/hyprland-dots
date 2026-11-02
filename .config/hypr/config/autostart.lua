@@ -1,11 +1,9 @@
--- See https://wiki.hypr.land/Configuring/Basics/Autostart
+-- See https://wiki.hypr.land/configuring/core/autostart
 
 hl.on("hyprland.start", function () 
     hl.exec_cmd("kill kded6")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("hypridle -c ~/.config/hypr/hypridle.conf")
-    --hl.exec_cmd("corectrl --minimize-systray") -- only enable if you plan to tweak
-    --hl.exec_cmd("~/.config/hypr/scripts/moveOpenedGames.sh") -- disabled by default since this behavior may not be desirable
 
     -- Choose only one
     hl.exec_cmd("wayle panel start")

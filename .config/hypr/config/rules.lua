@@ -1,5 +1,5 @@
--- See https://wiki.hypr.land/Configuring/Basics/Window-Rules
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules
+-- See https://wiki.hypr.land/configuring/core/rules/window-rules
+-- and https://wiki.hypr.land/configuring/core/rules/workspace-rules
 
 hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol" }, float = true, center = true, size = "660, 540" })
 hl.window_rule({ match = { title = "Save File" }, float = true })

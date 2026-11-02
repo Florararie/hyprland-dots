@@ -7,7 +7,7 @@ local powermenu = "sh ~/.config/hypr/scripts/powermenu.sh"
 local screenshot = "sh ~/.config/hypr/scripts/screenshot.sh"
 local menu = "rofi -show drun -show-icons -theme ~/.config/hypr/rofi/main.rasi"
 
--- https://wiki.hypr.land/Configuring/Basics/Variables
+-- https://wiki.hypr.land/configuring/core/config-options/#input
 hl.config({
     input = {
         kb_layout  = "us",
@@ -27,13 +27,13 @@ hl.config({
 })
 
 -- Example per-device config
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices for more
+-- See https://wiki.hypr.land/configuring/core/devices for more
 hl.device({
     name        = "epic-mouse-v1",
     sensitivity = -0.5,
 })
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds for more
+-- Example binds, see https://wiki.hypr.land/configuring/core/binds for more
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
